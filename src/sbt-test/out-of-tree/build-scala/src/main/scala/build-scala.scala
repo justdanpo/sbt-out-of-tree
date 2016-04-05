@@ -1,0 +1,3 @@
+package buildScala
+
+class BuildScala

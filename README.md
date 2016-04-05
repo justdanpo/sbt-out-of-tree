@@ -33,7 +33,7 @@ Add this to your `plugins.sbt`:
 ```scala
 resolvers += "bumnetworks" at "http://repo.bumnetworks.com/releases/"
 
-addSbtPlugin("com.bumnetworks" % "sbt-out-of-tree" % "0.0.1")
+addSbtPlugin("com.bumnetworks" % "sbt-out-of-tree" % "0.0.2")
 ```
 
 No further action is required on your part: this project's build products will
