@@ -4,7 +4,7 @@ organization := "com.bumnetworks"
 
 name := "sbt-out-of-tree"
 
-version := "0.0.1"
+version := "0.0.2-SNAPSHOT"
 
 publishTo <<= (version) {
   v =>
