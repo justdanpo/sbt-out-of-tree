@@ -6,10 +6,9 @@ name := "sbt-out-of-tree"
 
 version := "0.0.3-SNAPSHOT"
 
-publishTo <<= (version) {
-  v =>
+publishTo := {
     val repo = file(".") / ".." / "repo"
     Some(Resolver.file("repo",
-      if (v.trim.endsWith("SNAPSHOT")) repo / "snapshots"
+      if (version.value.trim.endsWith("SNAPSHOT")) repo / "snapshots"
       else repo / "releases"))
 }

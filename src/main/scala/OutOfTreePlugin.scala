@@ -16,11 +16,11 @@ object OutOfTreePlugin extends AutoPlugin {
 
   private def settings = Seq(
     outOfTreeTmp := Paths.get(System.getProperty("java.io.tmpdir")),
-    outOfTreeRoot <<= (thisProject, outOfTreeTmp) { (p, tmp) =>
-      val base = p.base.toPath.toAbsolutePath.normalize
-      tmp.resolve(s"sbt-out-of-tree").resolve(base.subpath(0, base.getNameCount))
+    outOfTreeRoot := {
+      val base = thisProject.value.base.toPath.toAbsolutePath.normalize
+      outOfTreeTmp.value.resolve(s"sbt-out-of-tree").resolve(base.subpath(0, base.getNameCount))
     },
-    target <<= outOfTreeRoot { _.resolve("target").toFile }
+    target := outOfTreeRoot.value.resolve("target").toFile
   )
 
   override lazy val projectSettings = settings
